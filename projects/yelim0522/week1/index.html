@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 관리 캘린더</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>내 캘린더</h1>
+        <!-- 상단에 위치한 일정 추가 버튼 -->
+        <button id="add-btn">일정 추가</button>
+    </header>
+
+    <main>
+        <div id="calendar-container">
+            <div id="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h2 id="month-year"></h2>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div id="calendar-grid">
+                <div class="weekdays">
+                    <div class="sun">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div class="sat">토</div>
+                </div>
+                <div class="days" id="calendar-days">
+                    <!-- 자바스크립트로 날짜가 여기에 추가됩니다 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 날짜 클릭 시 나타나는 일정 목록 탭 -->
+        <div id="schedule-panel" class="hidden">
+            <h3 id="selected-date-title">선택한 날짜</h3>
+            <ul id="schedule-list"></ul>
+            <button id="close-panel">닫기</button>
+        </div>
+    </main>
+
+    <!-- 일정 추가용 모달창 -->
+    <div id="add-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>새 일정 추가</h3>
+            <input type="date" id="new-date" required>
+            <input type="text" id="new-title" placeholder="일정 내용을 입력하세요" required>
+            <div class="modal-actions">
+                <button id="save-schedule">저장</button>
+                <button id="cancel-schedule" class="cancel-btn">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 일정 수정용 모달창 -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>일정 수정</h3>
+            <input type="text" id="edit-title" required>
+            <div class="modal-actions">
+                <button id="save-edit-schedule">수정 완료</button>
+                <button id="cancel-edit-schedule" class="cancel-btn">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
