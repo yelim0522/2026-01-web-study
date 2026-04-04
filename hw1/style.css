@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  background: linear-gradient(135deg, #f7f5f2, #e7ebff);
+}
+
+.card {
+  width: min(520px, 92vw);
+  padding: 40px;
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.desc {
+  color: #4b5563;
+}
+
+button {
+  margin-top: 20px;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #7a96ff;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
