@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
-  background: linear-gradient(135deg, #f7f5f2, #e7ebff);
+  background: linear-gradient(135deg, #A8B5A0, #C8D5B9);
 }
 
 .card {
@@ -36,7 +36,7 @@ button {
   border: none;
   padding: 14px 22px;
   border-radius: 999px;
-  background: #7a96ff;
+  background: linear-gradient(135deg, #A8B5A0, #C8D5B9);
   color: white;
   font-weight: 700;
   cursor: pointer;
