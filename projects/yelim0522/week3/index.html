@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OurTime - 우리들의 빈 시간 찾기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>OurTime ⏱️</h1>
+            <p>우리들의 빈 시간 찾기</p>
+        </div>
+        <div class="header-buttons">
+            <button id="add-btn">일정 추가</button>
+            <button id="share-btn">공유 / 겹쳐보기</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="timetable-container">
+            <!-- 시간표 레이아웃 (CSS Grid 적용) -->
+            <div class="timetable" id="timetable">
+                <!-- 자바스크립트에서 요일(가로축)과 24시간(세로축) 그리드를 자동으로 생성합니다 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 일정 추가용 모달창 -->
+    <div id="add-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">새 일정 추가</h3>
+            <input type="text" id="schedule-title" placeholder="일정 이름 (예: 동아리 회의)" required>
+            <input type="text" id="user-nickname" placeholder="내 닉네임 (서버 저장용)">
+            <select id="schedule-day">
+                <option value="0">일요일</option>
+                <option value="1">월요일</option>
+                <option value="2">화요일</option>
+                <option value="3">수요일</option>
+                <option value="4">목요일</option>
+                <option value="5">금요일</option>
+                <option value="6">토요일</option>
+            </select>
+            <div class="time-inputs">
+                <div class="time-group">
+                    <span class="time-label-inline">시작</span>
+                    <select id="start-ampm"><option value="AM">오전</option><option value="PM">오후</option></select>
+                    <input type="number" id="start-hour" placeholder="12" min="1" max="12" required><span>:</span>
+                    <input type="number" id="start-min" placeholder="00" min="0" max="59" required>
+                </div>
+                <div class="time-group">
+                    <span class="time-label-inline">종료</span>
+                    <select id="end-ampm"><option value="AM">오전</option><option value="PM">오후</option></select>
+                    <input type="number" id="end-hour" placeholder="12" min="1" max="12" required><span>:</span>
+                    <input type="number" id="end-min" placeholder="00" min="0" max="59" required>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="save-btn" class="save-btn">저장</button>
+                <button id="cancel-btn" class="cancel-btn">취소</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 친구 데이터 공유/불러오기 모달창 -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>공유 / 겹쳐보기</h3>
+            <div class="share-section">
+                <h4>내 데이터 내보내기</h4>
+                <textarea id="export-data" readonly></textarea>
+                <button id="copy-btn">복사하기</button>
+            </div>
+            <div class="share-section">
+                <h4>닉네임으로 친구 찾기</h4>
+                <input type="text" id="friend-nickname" placeholder="친구 닉네임 입력">
+                <button id="db-load-btn">닉네임으로 가져오기</button>
+            </div>
+            <div class="share-section">
+                <h4>친구 데이터 불러오기</h4>
+                <textarea id="import-data" placeholder="친구의 JSON 데이터를 붙여넣으세요"></textarea>
+                <button id="import-btn">겹쳐보기</button>
+            </div>
+            <div class="modal-actions">
+                <button id="close-share-btn" class="cancel-btn">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase CDN 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
